@@ -5,41 +5,42 @@ int main()
 {
 	int inventory[] = { 00, 00, 00 };		//Calls variables
 	int gold = 100;
-	int itemBuy = 0;
+	double itemBuy = 0;
 	int rope = 25;
 	int ropeID = 01;
 	int potion = 15;
 	int potionID = 02;
 	int sword = 75;
 	int swordID = 03;
+
+	cout << "Current Inventory :" << endl;	//Shows Current Inventory
+	cout << "Gold:  " << gold << endl;
+	for (int x = 0; x < 3; x++)
+	{
+		switch (inventory[x])
+		{
+		case 00:
+			cout << "EMPTY" << endl;
+			break;
+		case 01:
+			cout << "Rope -- 25g" << endl;
+			break;
+		case 02:
+			cout << "Potion -- 15g" << endl;
+			break;
+		case 03:
+			cout << "Sword -- 75g" << endl;
+			break;
+		default:
+			break;
+		}
+	}
 	do{
 		cout << "+=-------SHOP-------=+" << endl;	//Displays Shop
 		cout << "| 1 --- Rope --- 25g |" << endl;
 		cout << "| 2 -- Potion -- 15g |" << endl;
 		cout << "| 3 --- Sword -- 75g |" << endl;
 		cout << "+=------------------=+" << endl;
-		cout << "Current Inventory :" << endl;	//Shows Current Inventory
-		cout << "Gold:  " << gold << endl;
-		for (int x = 0; x < 3; x++)
-		{
-			switch (inventory[x])
-			{
-			case 00:
-				cout << "EMPTY" << endl;
-				break;
-			case 01:
-				cout << "Rope -- 25g" << endl;
-				break;
-			case 02:
-				cout << "Potion -- 15g" << endl;
-				break;
-			case 03:
-				cout << "Sword -- 75g" << endl;
-				break;
-			default:
-				break;
-			}
-		}
 		cout << "What would you like to buy? (-1 to exit) \n>";
 		cin >> itemBuy;								//User Input
 		if (itemBuy == 3 || itemBuy == 2 || itemBuy == 1)
@@ -132,6 +133,29 @@ int main()
 				break;
 			default:
 				break;
+			}
+
+			cout << "Current Inventory :" << endl;
+			cout << "Gold:  " << gold << endl;
+			for (int x = 0; x < 3; x++)
+			{
+				switch (inventory[x])
+				{
+				case 00:
+					cout << "EMPTY" << endl;
+					break;
+				case 01:
+					cout << "Rope -- 25g" << endl;
+					break;
+				case 02:
+					cout << "Potion -- 15g" << endl;
+					break;
+				case 03:
+					cout << "Sword -- 75g" << endl;
+					break;
+				default:
+					break;
+				}
 			}
 		}
 		else
