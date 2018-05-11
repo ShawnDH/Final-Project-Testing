@@ -40,9 +40,15 @@ int main()
 				break;
 			}
 		}
+
 		cout << "What would you like to buy? (-1 to exit) \n>";
-		cin >> itemBuy;								//User Input
-		if (itemBuy == 3 || itemBuy == 2 || itemBuy == 1)
+		while (!(cin >> itemBuy))										//Makes sure the input is only a number
+		{
+			cout << "ERROR !! INVALID INPUT PLEASE TRY AGIAN!! \n>";
+			cin.clear();												//User Input
+			cin.ignore(100000, '\n');
+		}
+		if (itemBuy >= 1 && itemBuy <= 3)
 		{
 			switch (itemBuy)
 			{
@@ -134,9 +140,13 @@ int main()
 				break;
 			}
 		}
+		else if (itemBuy >= 4 || itemBuy <= -2 || itemBuy == 0)
+		{
+			cout << "\nERROR!! INVALID INPUT PLEASE TRY AGAIN\n" << endl;
+		}
 		else
 		{
-			cout << "ERROR: ITEM NUMBER " << itemBuy << " NOT FOUND PLEASE TRY AGAIN \n " << endl;
+
 		}
 	} while (itemBuy != -1);
 
