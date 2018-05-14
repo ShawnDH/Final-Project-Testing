@@ -1,18 +1,16 @@
 #include <iostream>
 #include <windows.h>
 
-int main()
+using namespace std;
+
+int main(void)
 {
-	HANDLE outcon = GetStdHandle(STD_OUTPUT_HANDLE);//you don't have to call this function every time
+	HWND console = GetConsoleWindow();
+	RECT r;
+	GetWindowRect(console, &r); //stores the console's current dimensions
 
-	CONSOLE_FONT_INFOEX font;//CONSOLE_FONT_INFOEX is defined in some windows header
-	GetCurrentConsoleFontEx(outcon, false, &font);//PCONSOLE_FONT_INFOEX is the same as CONSOLE_FONT_INFOEX*
-	font.dwFontSize.X = 7;
-	font.dwFontSize.Y = 12;
-	SetCurrentConsoleFontEx(outcon, false, &font);
+	MoveWindow(console, r.left, r.top, 800, 100, TRUE); // 800 width, 100 height
 
-	SetConsoleTextAttribute(outcon, 0x0C);
-	std::cout << "I'm red";
-	std::cin.get();
+	system("pause");
 	return 0;
 }
